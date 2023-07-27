@@ -1,24 +1,31 @@
-# README
+# アプリケーション名
+stock_list
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+非常食の賞味期限を管理できるアプリケーションです。
 
-Things you may want to cover:
+# URL
+https://stock-list-8b54.onrender.com/
 
-* Ruby version
+# テスト用アカウント
 
-* System dependencies
+# 利用方法
 
-* Configuration
+# アプリケーションを作成した背景
 
-* Database creation
+# 洗い出した要件
 
-* Database initialization
+# 実装した機能についての画像やGIFおよびその説明
 
-* How to run the test suite
+# 実装予定の機能
 
-* Services (job queues, cache servers, search engines, etc.)
+# データベース設計
+![ER(stolis)](https://github.com/1682123/stock_list/assets/129637236/13623f1c-ce00-4e7d-a91c-d983a677a7f0)
 
-* Deployment instructions
+# 画面遷移図
 
-* ...
+# 開発環境
+
+# ローカルでの動作方法
+
+# 工夫したポイント
