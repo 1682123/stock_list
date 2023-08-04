@@ -31,8 +31,9 @@ Eメール:test@mail.com
 - 非常食を検索しやすくする：タグ機能 
 - 各ユーザーごとで非常食管理できるようにする：ユーザー管理機能
 - 期限切れる前に通知：メール通知 
-- ローリングストックできるよう消費後の非常食の追加：買い物リスト  
-[** 要件定義書 **](https://docs.google.com/spreadsheets/d/1VezBw4C079t_eND6X3nUdX1-ezVCEolpK3-6eBdiPJE/edit#gid=982722306)
+- ローリングストックできるよう消費後の非常食の追加：買い物リスト
+  
+[要件定義書](https://docs.google.com/spreadsheets/d/1VezBw4C079t_eND6X3nUdX1-ezVCEolpK3-6eBdiPJE/edit#gid=982722306)
 
 # 実装した機能についての画像やGIFおよびその説明
 ### ユーザー管理機能
