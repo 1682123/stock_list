@@ -10,8 +10,8 @@ https://stock-list-8b54.onrender.com/
 # テスト用アカウント
 <details>
 <summary>テスト用アカウント</summary>
-Eメール:test@mail.com　　
-パスワード:111111
+- Eメール:test@mail.com
+- パスワード:111111
 
 </details>
 
