@@ -8,7 +8,6 @@ stock_list(開発中です)
 https://stock-list-8b54.onrender.com/
 
 # テスト用アカウント
-テスト用アカウント
 - Eメール:test@mail.com
 - パスワード:111111
 
