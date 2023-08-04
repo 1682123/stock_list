@@ -1,0 +1,27 @@
+<%= form_with model: @stock_form, url: url, method: method, id: 'new_stock', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+  <div class="message-field">
+    <%= f.label :name, "商品名" %><br />
+    <%= f.text_field :food_name %>
+  </div>
+  <div class="tag_field">
+    <%= f.label :name, "賞味期限" %><br />
+    <%= f.date_field :expiration_date %>
+  </div>
+  <div class="tag_field">
+    <%= f.label :name, "備考欄" %><br />
+    <%= f.text_area :memo %>
+  </div>
+  <div class="tag_field">
+    <%= f.label :name, "タグ：「,」で区切ると複数タグ登録できます" %><br />
+    <%= f.text_field :tag_name %>
+  </div>
+  <div class="image-field">
+    <div class="click-upload">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+  <div class="submit-btn">
+    <%= f.submit '送信', class:"btn btn-primary" %>
+  </div>
+<% end %>

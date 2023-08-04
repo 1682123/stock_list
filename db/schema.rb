@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2023_08_01_073523) do
 
   create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "food_name", null: false
-    t.date "expration_date", null: false
+    t.date "expiration_date", null: false
     t.string "memo"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
