@@ -90,10 +90,13 @@ https://stock-list-8b54.onrender.com/
 - bootstrap
 
 # ローカルでの動作方法
+1. git clone https://github.com/1682123/stock_list.git
+1. cd stock_list
 1. bundle install
 1. yarn install
 1. rails db:create
 1. rails db:migrate
+1. rails s
 
 # 工夫したポイント
 工夫した点は4点あります。  
