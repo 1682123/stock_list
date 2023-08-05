@@ -11,6 +11,7 @@ class StockForm
     validates :food_name
     validates :expiration_date
     validates :image
+    validates :user_id
   end
 
   def save(tag_list)
