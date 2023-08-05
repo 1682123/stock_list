@@ -7,6 +7,10 @@ stock_list(開発中です)
 # URL
 https://stock-list-8b54.onrender.com/
 
+# BASIC認証
+- ユーザー名：stolis
+- パスワード：1111
+
 # テスト用アカウント
 - Eメール:test@mail.com
 - パスワード:111111
