@@ -2,11 +2,12 @@ class StocksController < ApplicationController
   before_action :set_stock, only: [:edit, :update]
   
   def index
-    @stocks = Stock.includes(:user).order("expiration_date ASC")
+    # ログインユーザーの投稿のみの表示
+    @user_stocks = current_user.stocks.order("expiration_date ASC")
 
     # 賞味期限までの残日数の表示
     @remaining_days = {}
-    @stocks.each do |stock|
+    @user_stocks.each do |stock|
       if stock.expiration_date.present?
         remaining_days = (stock.expiration_date - Date.today).to_i
         @remaining_days[stock.id] = remaining_days
@@ -59,7 +60,7 @@ class StocksController < ApplicationController
   def destroy
     stock = Stock.find(params[:id])
     if stock.destroy
-      redirect_to stocks_path
+      redirect_to stock_path
     end
   end
 
