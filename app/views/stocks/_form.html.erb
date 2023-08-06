@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-12 col-md-6">
       <%= form_with model: @stock_form, url: url, method: method, id: 'new_stock', local: true do |f| %>
+      
+      <%# エラーメッセージ表示 %>
       <%= render 'shared/error_messages', model: f.object %>
+
         <div class="message-field mb-2">
           <%= f.label :name, "商品名", class:"form-label"%><br />
           <%= f.text_field :food_name, class:"form-control" %>

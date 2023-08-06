@@ -10,9 +10,9 @@ class StockForm
   with_options presence: true do
     validates :food_name
     validates :expiration_date
-    validates :image
-    validates :user_id
   end
+
+  validates :image, presence: { message: "を選択してください" }
 
   def save(tag_list)
     stock = Stock.create(food_name: food_name, expiration_date: expiration_date, memo: memo, image: image, user_id: user_id)
