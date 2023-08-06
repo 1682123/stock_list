@@ -1,7 +1,16 @@
 class StocksController < ApplicationController
   
   def index
-    @stocks = Stock.includes(:user).order("created_at ASC")
+    @stocks = Stock.includes(:user).order("expiration_date ASC")
+
+    # 賞味期限までの残日数の表示
+    @remaining_days = {}
+    @stocks.each do |stock|
+      if stock.expiration_date.present?
+        remaining_days = (stock.expiration_date - Date.today).to_i
+        @remaining_days[stock.id] = remaining_days
+      end
+    end
   end
 
   def new

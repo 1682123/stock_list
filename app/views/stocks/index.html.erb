@@ -34,7 +34,21 @@
                 <%= link_to '編集', root_path, class:"btn btn-sm btn-outline-secondary"%>
                 <%= link_to '削除', root_path, class:"btn btn-sm btn-outline-secondary"%>
               </div>
-              <h5 class="text-body">残り⚪︎⚪︎日</h4>
+              <% if stock.expiration_date.present? %>
+                <% remaining_days = @remaining_days[stock.id] %>
+                <% if remaining_days >= 0 %>
+                  <% if remaining_days <= 7 %>
+                    <%# 残り7日前の表示 %>
+                    <h5 style="color: red;">残り <%= remaining_days %> 日</h5>
+                  <% else %>
+                    <h5>残り <%= remaining_days %>日</h5>
+                  <% end %>
+                <% else %>
+                  <%#  期日を過ぎているときの表示%>
+                  <h5 style="color: red;">過ぎています</h5>
+                <% end %>
+              <% end %>
+              <!-- <h5 class="text-body">残り⚪︎⚪︎日</h4> -->
             </div>
           </div>
         </div>
