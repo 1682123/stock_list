@@ -19,7 +19,7 @@
         <div class="card shadow-sm h-100">
           <%= image_tag stock.image, class: "card-img-top img-fluid" %>
           <div class="card-body">
-            <h5 class="card-title"><%= stock.food_name %></h5>
+            <h5 class="card-title fw-bold"><%= stock.food_name %></h5>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">備考欄：<%= stock.memo %></li>
               <li class="list-group-item">タグ：
@@ -27,28 +27,27 @@
                   <%= tag.tag_name %>
                 <% end %>
               </li>
-              <li class="list-group-item">賞味期限：<%= stock.expiration_date %></li>
+              <li class="list-group-item fw-bold">賞味期限：<%= stock.expiration_date %></li>
             </ul>
             <div class="d-flex justify-content-between align-items-center mt-3">
               <div class="btn-group">
-                <%= link_to '編集', root_path, class:"btn btn-sm btn-outline-secondary"%>
-                <%= link_to '削除', root_path, class:"btn btn-sm btn-outline-secondary"%>
+                <%= link_to '編集', edit_stock_path(stock.id), class:"btn btn-sm btn-outline-secondary"%>
+                <%= link_to '削除', stock_path(stock.id), method: :delete, class:"btn btn-sm btn-outline-secondary"%>
               </div>
               <% if stock.expiration_date.present? %>
                 <% remaining_days = @remaining_days[stock.id] %>
                 <% if remaining_days >= 0 %>
                   <% if remaining_days <= 7 %>
                     <%# 残り7日前の表示 %>
-                    <h5 style="color: red;">残り <%= remaining_days %> 日</h5>
+                    <h5 style="color: red;" class="fw-bold">残り <%= remaining_days %> 日</h5>
                   <% else %>
                     <h5>残り <%= remaining_days %>日</h5>
                   <% end %>
                 <% else %>
                   <%#  期日を過ぎているときの表示%>
-                  <h5 style="color: red;">過ぎています</h5>
+                  <h5 style="color: red;" class="fw-bold">過ぎています</h5>
                 <% end %>
               <% end %>
-              <!-- <h5 class="text-body">残り⚪︎⚪︎日</h4> -->
             </div>
           </div>
         </div>
