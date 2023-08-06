@@ -16,20 +16,25 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <% @stocks.each do |stock| %>
       <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <%= image_tag stock.image.variant(resize: '500x500'), class: "card-img-top" %>
+        <div class="card shadow-sm h-100">
+          <%= image_tag stock.image, class: "card-img-top img-fluid" %>
           <div class="card-body">
             <h5 class="card-title"><%= stock.food_name %></h5>
-            <p class="card-text"><%= stock.memo %></p>
-            <p class="card-text">タグ:
-
-            </p>
-            <div class="d-flex justify-content-between align-items-center">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">備考欄：<%= stock.memo %></li>
+              <li class="list-group-item">タグ：
+                <% stock.tags.each do |tag| %>
+                  <%= tag.tag_name %>
+                <% end %>
+              </li>
+              <li class="list-group-item">賞味期限：<%= stock.expiration_date %></li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center mt-3">
               <div class="btn-group">
                 <%= link_to '編集', root_path, class:"btn btn-sm btn-outline-secondary"%>
                 <%= link_to '削除', root_path, class:"btn btn-sm btn-outline-secondary"%>
               </div>
-              <h5 class="text-body">賞味期限：<%= stock.expiration_date %></h4>
+              <h5 class="text-body">残り⚪︎⚪︎日</h4>
             </div>
           </div>
         </div>
