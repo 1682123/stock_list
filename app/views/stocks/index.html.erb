@@ -38,7 +38,7 @@
                 <% remaining_days = @remaining_days[stock.id] %>
                 <% if remaining_days >= 0 %>
                   <% if remaining_days <= 7 %>
-                    <%# 残り7日前の表示 %>
+                    <%# 残り7日以下の表示 %>
                     <h5 style="color: red;" class="fw-bold">残り <%= remaining_days %> 日</h5>
                   <% else %>
                     <h5>残り <%= remaining_days %>日</h5>
