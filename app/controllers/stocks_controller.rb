@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_stock, only: [:edit, :update]
-  before_action :move_to_index, only: :edit
+  before_action :move_to_index, only: [:edit]
   
   def index
     # ログインユーザーの投稿のみの表示
@@ -62,7 +62,7 @@ class StocksController < ApplicationController
   def destroy
     stock = Stock.find(params[:id])
     if stock.destroy
-      redirect_to stock_path
+      redirect_to stocks_path
     end
   end
 
