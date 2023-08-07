@@ -11,45 +11,52 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-sm bg-body-secondary" data-bs-theme="dark">
-      <div class="container-fluid">
-        <%= link_to 'StockList', root_path, class:"navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <% if user_signed_in? %>
-        <div class="collapse navbar-collapse" id="navbar">
-          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">在庫一覧</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">買い物リスト</a>
-            </li>
-          </ul>
+    <header>
+       <nav class="navbar navbar-expand-md bg-body-secondary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <%= link_to 'StockList', root_path, class:"navbar-brand" %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <%# ログインしている時の表示 %>
+          <% if user_signed_in? %>
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+              <li class="nav-item">
+                <%= link_to '在庫一覧', stocks_path, class:"nav-link" %>
+                <!-- <a class="nav-link" href="#">在庫一覧</a> -->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">買い物リスト</a>
+              </li>
+            </ul>
 
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link disabled text-white"><%= current_user.name %>さん</a>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link" %>
-            </li>
-          </ul>
-          <% else %>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to '新規登録', new_user_registration_path, class:"nav-link" %>
-            </li>
-          </ul>
-          <% end %>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link disabled text-white"><%= current_user.name %>さん</a>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link" %>
+              </li>
+            </ul>
+
+            <% else %>
+            
+            <%# ログインしていない時の表示 %>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '新規登録', new_user_registration_path, class:"nav-link" %>
+              </li>
+            </ul>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
     
     <%= yield %>
     

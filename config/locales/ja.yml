@@ -6,3 +6,9 @@ ja:
     attributes:
       user:
         name: 名前
+  activemodel:
+     attributes:
+      stock_form:
+        food_name: 商品名
+        expiration_date: 賞味期限
+        image: 画像
