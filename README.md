@@ -36,11 +36,11 @@ https://stock-list-8b54.onrender.com/
 [要件定義書](https://docs.google.com/spreadsheets/d/1VezBw4C079t_eND6X3nUdX1-ezVCEolpK3-6eBdiPJE/edit#gid=982722306)
 
 # 実装した機能についての画像やGIFおよびその説明
-### トップページ
+## トップページ
 このアプリの概要と簡単な説明文を記載しています。  
 [![Image from Gyazo](https://i.gyazo.com/4e5a5a3041e571b24bcf70bcfa4c9f59.gif)](https://gyazo.com/4e5a5a3041e571b24bcf70bcfa4c9f59)
 
-### ユーザー管理機能
+## ユーザー管理機能
 トップページのヘッダーから移動できます。
 - 新規登録ページ
 ユーザー名、メールアドレス、パスワードを入力して登録します。  
@@ -53,7 +53,7 @@ https://stock-list-8b54.onrender.com/
 - ログイン後、在庫一覧と買い物リストの一覧が表示されます
 [![Image from Gyazo](https://i.gyazo.com/6120c59bed7276417c0627c21811a5c8.png)](https://gyazo.com/6120c59bed7276417c0627c21811a5c8)
 
-### 非常食管理機能
+## 非常食管理機能
 - 在庫一覧の表示
 登録した非常食の一覧です。賞味期限までのカウントダウンも表示しています。7日前になると文字が赤く表示されます。  
 （右上の検索フォームの機能はこれから実装予定）  
