@@ -36,7 +36,7 @@ https://stock-list-8b54.onrender.com/
 [要件定義書](https://docs.google.com/spreadsheets/d/1VezBw4C079t_eND6X3nUdX1-ezVCEolpK3-6eBdiPJE/edit#gid=982722306)
 
 # 実装した機能についての画像やGIFおよびその説明
-### トップページ
+## トップページ
 このアプリの概要と簡単な説明文を記載しています。  
 [![Image from Gyazo](https://i.gyazo.com/4e5a5a3041e571b24bcf70bcfa4c9f59.gif)](https://gyazo.com/4e5a5a3041e571b24bcf70bcfa4c9f59)
 
