@@ -1,0 +1,8 @@
+<div class="cintainer">
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto mt-3" >
+      <h3 class="m-3 fw-bold">買い物リストの編集ページ</h3>
+      <%= render partial: "form", locals: {url: memo_path(@memo.id), method: :patch} %>
+    </div>
+  </div>
+</div>
