@@ -1,4 +1,9 @@
 class MemosController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_memo, only: [:edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
+
+
   def index
     # ログインユーザーの投稿のみの表示
     @user_memos = current_user.memos.order("created_at DESC")
@@ -18,11 +23,9 @@ class MemosController < ApplicationController
   end
 
   def edit
-    @memo = Memo.find(params[:id])
   end
 
   def update
-    @memo = Memo.find(params[:id])
     if @memo.update(memo_params)
       redirect_to memos_path
     else
@@ -31,7 +34,6 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    @memo = Memo.find(params[:id])
     @memo.destroy
     redirect_to memos_path
   end
@@ -41,4 +43,13 @@ class MemosController < ApplicationController
     params.require(:memo).permit(:title, :memo).merge(user_id: current_user.id)
   end
 
+  def set_memo
+    @memo = Memo.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in? && current_user.id == @memo.user_id
+      redirect_to action: :index
+    end
+  end
 end
