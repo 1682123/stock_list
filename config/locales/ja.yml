@@ -6,6 +6,8 @@ ja:
     attributes:
       user:
         name: 名前
+      memo:
+        title: 商品名
   activemodel:
      attributes:
       stock_form:
