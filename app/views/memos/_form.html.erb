@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6" style="width:500px;">
+      <%= form_with model: @memo, url: url, method: method, id: 'new_memo', local: true do |f| %>
+      
+      <%# エラーメッセージ表示 %>
+      <%= render 'shared/error_messages', model: f.object %>
+
+        <div class="message-field mb-2">
+          <%= f.label :name, "商品名", class:"form-label"%><br />
+          <%= f.text_field :title, class:"form-control" %>
+        </div>
+        <div class="tag_field mb-2">
+          <%= f.label :name, "備考欄", class:"form-label"  %><br />
+          <%= f.text_field :memo, class:"form-control" %>
+        </div>
+        <div class="submit-btn mb-2 text-center">
+          <%= f.submit '送信', class:"btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

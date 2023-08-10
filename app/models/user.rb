@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   
   has_many :stocks
-  # has_many :memos
+  has_many :memos
 end
