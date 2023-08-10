@@ -1,13 +1,14 @@
 <nav class="navbar navbar-expand-md bg-body-secondary" data-bs-theme="light">
-  <div class="container-fluid">
-    <%= link_to '新規登録', new_memo_path, class:"btn btn-primary" %>
-  </div>
+  
 </nav>
 
 <div class="container">
   <div class="row m-4">
     <div class="col-12 col-md-6 mb-3">
-      <h1 class="text-center fw-bold">買い物リスト</h5>
+      <h1 class="mr-1 fw-bold">買い物リスト</h5>
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+      <%= link_to '新規登録', new_memo_path, class:"btn btn-primary mb-3" %>
     </div>
     <%# 買い物リスト %>
     <table class="table table-striped">
@@ -24,7 +25,7 @@
         <tr>
           <td><%= memo.title %></td>
           <td><%= memo.memo %></td>
-          <td><%= memo.created_at.strftime('%Y年%m月%d日') %></td>
+          <td><%= memo.created_at.strftime('%Y-%m-%d %H:%M') %></td>
           <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
               <%= link_to '編集', edit_memo_path(memo.id), class:"btn btn-outline-secondary"%>
