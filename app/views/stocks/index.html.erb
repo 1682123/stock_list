@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <%= link_to '在庫登録', new_stock_path, class:"btn btn-primary" %>
     <div class="collapse navbar-collapse justify-content-lg-end" id="navbar">
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="在庫一覧から検索" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+      <%= form_with(url: search_stocks_path, local: true, method: :get, class: "d-flex") do |form| %>
+        <%= form.text_field :keyword, placeholder: "在庫を検索", class: "form-control me-2" %>
+        <%= form.submit "検索", class: "btn btn-outline-primary" %>
+      <% end %>
     </div>
   </div>
 </nav>
