@@ -66,6 +66,11 @@ class StocksController < ApplicationController
     end
   end
 
+  def search
+    @user = current_user
+    @stocks = Stock.search(params[:keyword])
+  end
+
   private
   def stock_form_params
     params.require(:stock_form).permit(:food_name, :expiration_date, :memo, :tag_name, :image).merge(user_id: current_user.id)
