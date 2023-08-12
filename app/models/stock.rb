@@ -12,7 +12,7 @@ class Stock < ApplicationRecord
     if search != ""
       Stock.where('food_name LIKE(?)', "%#{search}%")
     else
-      @user_stocks = current_user.stocks.order("expiration_date ASC")
+      @user_stocks
     end
   end
 end

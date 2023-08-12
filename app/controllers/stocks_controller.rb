@@ -67,8 +67,16 @@ class StocksController < ApplicationController
   end
 
   def search
-    @user = current_user
-    @stocks = Stock.search(params[:keyword])
+    @user_stocks = current_user.stocks.search(params[:keyword])
+
+    # 賞味期限までの残日数の表示
+    @remaining_days = {}
+    @user_stocks.each do |stock|
+      if stock.expiration_date.present?
+        remaining_days = (stock.expiration_date - Date.today).to_i
+        @remaining_days[stock.id] = remaining_days
+      end
+    end
   end
 
   private
