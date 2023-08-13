@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_stock, only: [:edit, :update]
+  before_action :set_stock, only: [:edit, :update, :destroy]
   before_action :move_to_index, only: [:edit]
   
   def index
@@ -25,7 +25,8 @@ class StocksController < ApplicationController
     @stock_form = StockForm.new(stock_form_params)
 
     # 複数のタグを,で区切って配列に保存
-    tag_list = params[:stock_form][:tag_name].split(",")
+    tag_list = prepare_tags(params[:stock_form][:tag_name])
+    
     if @stock_form.valid?
       @stock_form.save(tag_list)
       redirect_to stocks_path
@@ -39,6 +40,7 @@ class StocksController < ApplicationController
     @stock_form = StockForm.new(stock_attributes)
 
     #複数タグの表示
+    tag_names = @stock.tags.pluck(:tag_name).map { |tag| tag.delete_prefix("#") }
     @stock_form.tag_name = @stock.tags.pluck(:tag_name).join(',')
   end
 
@@ -49,7 +51,8 @@ class StocksController < ApplicationController
     @stock_form.image ||= @stock.image.blob
 
     # タグの複数保存
-    tag_list = params[:stock_form][:tag_name].split(",")
+    # tag_list = prepare_tags(params[:stock_form][:tag_name])
+    tag_list = prepare_tags(params[:stock_form][:tag_name])
 
     if @stock_form.valid?
       @stock_form.update(stock_form_params, @stock, tag_list)
@@ -60,8 +63,7 @@ class StocksController < ApplicationController
   end
 
   def destroy
-    stock = Stock.find(params[:id])
-    if stock.destroy
+    if @stock.destroy
       redirect_to stocks_path
     end
   end
@@ -82,6 +84,13 @@ class StocksController < ApplicationController
   private
   def stock_form_params
     params.require(:stock_form).permit(:food_name, :expiration_date, :memo, :tag_name, :image).merge(user_id: current_user.id)
+  end
+
+  def prepare_tags(tags_string)
+    tags = tags_string.split(",")
+    formatted_tags = tags.map do |tag|
+      tag.strip.start_with?("#") ? tag.strip : "##{tag.strip}"
+    end
   end
 
   def set_stock
