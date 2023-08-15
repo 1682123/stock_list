@@ -42,5 +42,4 @@ class StockForm
       stock.update(params)
     end
   end
-
 end
