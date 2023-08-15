@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_stock, only: [:edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit]
+  before_action :move_to_index, only: [:edit, :destroy]
   
   def index
     # ログインユーザーの投稿のみの表示
@@ -51,7 +51,6 @@ class StocksController < ApplicationController
     @stock_form.image ||= @stock.image.blob
 
     # タグの複数保存
-    # tag_list = prepare_tags(params[:stock_form][:tag_name])
     tag_list = prepare_tags(params[:stock_form][:tag_name])
 
     if @stock_form.valid?
@@ -69,7 +68,13 @@ class StocksController < ApplicationController
   end
 
   def search
-    @user_stocks = current_user.stocks.search(params[:keyword])
+    @user_stocks = current_user.stocks
+
+    if (params[:keyword])[0] == '#'
+      @user_stocks = Tag.search_for_user(current_user, params[:keyword]).order("expiration_date ASC")
+    else
+      @user_stocks = Stock.search_for_user(current_user, params[:keyword]).order("expiration_date ASC")
+    end
 
     # 賞味期限までの残日数の表示
     @remaining_days = {}

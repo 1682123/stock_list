@@ -8,11 +8,11 @@ class Stock < ApplicationRecord
   has_many :tags, through: :stock_tags
   has_one_attached :image
 
-  def self.search(search)
-    if search != ""
-      Stock.where('food_name LIKE(?)', "%#{search}%")
+  def self.search_for_user(user, search)
+    if search.present?
+      user.stocks.where('food_name LIKE ?', "%#{search}%")
     else
-      @user_stocks
+      user.stocks
     end
   end
 end
