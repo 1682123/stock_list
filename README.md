@@ -56,7 +56,6 @@ https://stock-list-8b54.onrender.com/
 ## 非常食管理機能
 - 在庫一覧の表示
 登録した非常食の一覧です。賞味期限までのカウントダウンも表示しています。7日前になると文字が赤く表示されます。  
-（右上の検索フォームの機能はこれから実装予定）  
 [![Image from Gyazo](https://i.gyazo.com/3b0ae073afc6e94c8b909e7f4171ce86.png)](https://gyazo.com/3b0ae073afc6e94c8b909e7f4171ce86)
 
 - 投稿機能
@@ -64,6 +63,9 @@ https://stock-list-8b54.onrender.com/
 [![Image from Gyazo](https://i.gyazo.com/0bba4813dc6d08f59e1fba5eaa0db6d8.png)](https://gyazo.com/0bba4813dc6d08f59e1fba5eaa0db6d8)
 
 - 一覧ページにある編集ボタンをクリックすると編集可能です。また消費後は削除ボタンをクリックすると削除できます。
+
+- 右上の検索フォームにて「商品名」か「#タグ」で検索することが可能です。
+[![Image from Gyazo](https://i.gyazo.com/0a1ec0b966716f8648deb020ddaf1dc1.png)](https://gyazo.com/0a1ec0b966716f8648deb020ddaf1dc1)
 
 ## 買い物リスト機能
 - 在庫一覧の表示
@@ -77,7 +79,6 @@ https://stock-list-8b54.onrender.com/
 - 一覧ページの編集ボタンをクリックすると編集可能です。また消費後は削除ボタンをクリックすると削除できます。
 
 # 実装予定の機能
-- 在庫一覧から非常食を検索する機能
 - メール通知機能
 
 # データベース設計
