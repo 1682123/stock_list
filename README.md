@@ -90,9 +90,10 @@ https://stock-list-8b54.onrender.com/
 # 開発環境
 - Ruby 2.6.5
 - Ruby on Rails 6.0.0
-- PostgreSQL
+- MySQL
 - Github
 - bootstrap
+- Visual Studio Code
 
 # 工夫したポイント
 工夫した点は以下になります。  
