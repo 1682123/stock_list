@@ -1,2 +1,24 @@
-<%= @stock.food_name %>の賞味期限があと<%= @period %>前になりました。
-賞味期限：<%= @stock.expiration_date.strftime('%Y/%m/%d') %>です。
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>こんにちは、<%= @stock.user.name %>さん</p>
+    <p>以下の非常食の賞味期限が迫ってきているのでお知らせいたします</p>
+    <p>商品名: <%= @stock.food_name %></p>
+    <p>賞味期限: <%= @stock.expiration_date %></p>
+
+    <% days_until_expiration = (@item.expiration_date - Date.today).to_i %>
+    <% if days_until_expiration == 7 %>
+      <p><strong>賞味期限があと1週間です。お早めに消費してください。</strong></p>
+    <% elsif days_until_expiration == 30 %>
+      <p><strong>賞味期限があと1ヶ月です。ご注意ください。</strong></p>
+    <% else %>
+      <p>賞味期限まであと <%= days_until_expiration %> 日です。</p>
+    <% end %>
+
+    <p>配信:<a href="#">Stock List</a></p>
+  </body>
+</html>
+  
