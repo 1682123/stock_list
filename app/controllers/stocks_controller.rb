@@ -40,7 +40,6 @@ class StocksController < ApplicationController
     @stock_form = StockForm.new(stock_attributes)
 
     #複数タグの表示
-    tag_names = @stock.tags.pluck(:tag_name).map { |tag| tag.delete_prefix("#") }
     @stock_form.tag_name = @stock.tags.pluck(:tag_name).join(',')
   end
 
