@@ -9,13 +9,15 @@
     <p>商品名: <%= @stock.food_name %></p>
     <p>賞味期限: <%= @stock.expiration_date %></p>
 
-    <% days_until_expiration = (@item.expiration_date - Date.today).to_i %>
+    <% days_until_expiration = (@stock.expiration_date - Date.today).to_i %>
     <% if days_until_expiration == 7 %>
       <p><strong>賞味期限があと1週間です。お早めに消費してください。</strong></p>
-    <% elsif days_until_expiration == 30 %>
+    <% elsif 28 <= days_until_expiration || days_until_expiration >= 31 %>
       <p><strong>賞味期限があと1ヶ月です。ご注意ください。</strong></p>
+    <% elsif days_until_expiration == 0 %>
+      <p><strong>本日が賞味期限です。</strong></p>
     <% else %>
-      <p>賞味期限まであと <%= days_until_expiration %> 日です。</p>
+    <p><strong>賞味期限まであと <%= days_until_expiration %> 日です。</strong></p>
     <% end %>
 
     <p>配信:<a href="#">Stock List</a></p>
