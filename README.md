@@ -73,8 +73,8 @@ https://stock-list-8b54.onrender.com/
 
 ## メール通知機能
 登録した非常食の賞味期限が切れる1ヶ月、1週間前、当日それぞれ通知します。  
-whenever、rakeタスク、Gmail APIを用いて実装しました。
-※開発環境ではletter openerで動作を確認しました。
+whenever、rakeタスク、Gmail APIを用いて実装しました。  
+※開発環境ではletter openerで動作を確認しました。  
 ※本番環境であるrenderの仕様上、wheneverは使えないため、解消に向けて勉強中。
 [![Image from Gyazo](https://i.gyazo.com/648b74e75f967ff87f56d4e5e0fca6d1.png)](https://gyazo.com/648b74e75f967ff87f56d4e5e0fca6d1)
 
