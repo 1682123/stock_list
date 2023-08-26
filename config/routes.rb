@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     end
   end
   resources :memos, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

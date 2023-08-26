@@ -15,4 +15,12 @@ class Stock < ApplicationRecord
       user.stocks
     end
   end
+
+  scope :expiring_in_one_month, -> {
+    where("expiration_date = ?", 1.month.from_now.to_date)
+  }
+  scope :expiring_in_one_week, -> {
+    where("expiration_date = ?", 1.week.from_now.to_date)
+  }
+  scope :today, -> { where(expiration_date: Date.today) }
 end

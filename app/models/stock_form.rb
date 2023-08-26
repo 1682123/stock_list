@@ -39,7 +39,7 @@ class StockForm
       # タグを保存
       tag.save
       StockTag.create(stock_id: stock.id, tag_id: tag.id)
-      stock.update(params)
     end
+    stock.update(params)
   end
 end
